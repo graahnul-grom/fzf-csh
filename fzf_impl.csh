@@ -3,11 +3,12 @@
 # [dmn]: csh support for textproc/fzf - fbsd 13 - 2022
 #
 
+set KEY_2 = "^[[24~" # F12
+
 set CMD="`fzf --tac --no-sort < ${HOME}/fzf_history.tmp`"
 set RET=$?
 rm -f ${HOME}/fzf_history.tmp
 
-set KEY_2 = "^[[24~" # F12
 if ( $RET == 0 ) then
     echo bindkey -s \"${KEY_2}\" \'${CMD}\' >! ${HOME}/fzf_cmd.tmp
 else
