@@ -6,16 +6,14 @@
 set KEY_2 = "^[[24~" # F12
 
 set CMD="`fzf --tac --no-sort < ${HOME}/fzf_history.tmp`"
-set RET=$?
-rm -f ${HOME}/fzf_history.tmp
-
-if ( $RET == 0 ) then
+if ( $? == 0 ) then
     echo bindkey -s \"${KEY_2}\" \'${CMD}\' >! ${HOME}/fzf_cmd.tmp
 else
     echo bindkey \"${KEY_2}\" backward-char >! ${HOME}/fzf_cmd.tmp
 endif
 
+rm -f ${HOME}/fzf_history.tmp
+
 unset KEY_2
 unset CMD
-exit $RET
 
