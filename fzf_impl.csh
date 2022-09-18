@@ -5,10 +5,13 @@
 
 set KEY_2 = "^[[24~" # F12
 
-set CMD="`fzf --tac --no-sort < ${HOME}/fzf_history.tmp`"
-if ( $? == 0 ) then
-    echo bindkey -s \"${KEY_2}\" \'${CMD}\' >! ${HOME}/fzf_cmd.tmp
-else
+echo -n bindkey -s \"${KEY_2}\" >! ${HOME}/fzf_cmd.tmp
+echo -n " " >> ${HOME}/fzf_cmd.tmp
+
+fzf --tac --no-sort < ${HOME}/fzf_history.tmp \
+    >> ${HOME}/fzf_cmd.tmp
+
+if ( $? != 0 ) then
     echo bindkey \"${KEY_2}\" backward-char >! ${HOME}/fzf_cmd.tmp
 endif
 
