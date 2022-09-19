@@ -3,7 +3,7 @@
 # [dmn]: csh support for textproc/fzf - fbsd 13 - 2022
 #
 
-set KEY_2 = "^[[24~" # F12
+set KEY_2 = "^X^F^G^H^I^J"
 
 echo -n bindkey -s \"${KEY_2}\" >! ${HOME}/fzf_cmd.tmp
 echo -n " " >> ${HOME}/fzf_cmd.tmp

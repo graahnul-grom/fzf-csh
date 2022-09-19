@@ -3,8 +3,8 @@
 #
 
 set KEY_RUN = "^R"     # Ctrl + R
-set KEY_1   = "^[[23~" # F11
-set KEY_2   = "^[[24~" # F12
+set KEY_1   = "^X^A^B^C^D^E"
+set KEY_2   = "^X^F^G^H^I^J"
 
 bindkey -c $KEY_1 "history -h >! ${HOME}/fzf_history.tmp; \
                    /home/fzf_csh.git/fzf_impl.csh; \
