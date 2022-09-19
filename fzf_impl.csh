@@ -28,7 +28,8 @@ fzf --tac --no-sort < ${HOME}/fzf_history.tmp | \
     sed -e 's,>,\\>,g'  | \
     sed -e 's,\;,\\;,g' | \
     sed -e 's,\|,\\|,g' | \
-    sed -e 's,\?,\\?,g' \
+    sed -e 's,\?,\\?,g' | \
+    sed -e 's,\^,\\\\^,g' \
     >> ${HOME}/fzf_cmd.tmp
 
 if ( $? != 0 ) then
