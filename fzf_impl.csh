@@ -5,10 +5,13 @@
 
 set KEY_2 = "^X^F^G^H^I^J"
 
-echo -n bindkey -s \"${KEY_2}\" >! ${HOME}/fzf_cmd.tmp
-echo -n " " >> ${HOME}/fzf_cmd.tmp
+set FILE_HIS = "${HOME}/fzf_history.tmp"
+set FILE_CMD = "${HOME}/fzf_cmd.tmp"
 
-fzf --tac --no-sort < ${HOME}/fzf_history.tmp | \
+echo -n bindkey -s \"${KEY_2}\" >! $FILE_CMD
+echo -n " " >> $FILE_CMD
+
+fzf --tac --no-sort < $FILE_HIS | \
     sed -e 's,\\,\\\\\\\\,g' | \
     sed -e 's, ,\\ ,g'  | \
     sed -e "s,',\\',g"  | \
@@ -30,14 +33,15 @@ fzf --tac --no-sort < ${HOME}/fzf_history.tmp | \
     sed -e 's,\|,\\|,g' | \
     sed -e 's,\?,\\?,g' | \
     sed -e 's,\^,\\\\^,g' \
-    >> ${HOME}/fzf_cmd.tmp
+    >> $FILE_CMD
 
 if ( $? != 0 ) then
-    echo bindkey \"${KEY_2}\" backward-char >! ${HOME}/fzf_cmd.tmp
+    echo bindkey \"${KEY_2}\" backward-char >! $FILE_CMD
 endif
 
-rm -f ${HOME}/fzf_history.tmp
+rm -f $FILE_HIS
 
+unset FILE_CMD
+unset FILE_HIS
 unset KEY_2
-unset CMD
 
