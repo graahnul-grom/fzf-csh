@@ -4,7 +4,7 @@
 # [dmn]: csh support for textproc/fzf - fbsd 13 - 2022
 #
 
-set DIR_OUT = $HOME
+set DIR_OUT = $1
 
 set FILE_HIS = "${DIR_OUT}/fzf_history.tmp"
 set FILE_CMD = "${DIR_OUT}/fzf_cmd.tmp"

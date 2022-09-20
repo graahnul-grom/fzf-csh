@@ -13,7 +13,7 @@ set KEY_1   = "^X^A^B^C^D^E"
 set KEY_2   = "^X^F^G^H^I^J"
 
 bindkey -c $KEY_1 "history -h >! ${FILE_HIS}; \
-                   ${FILE_IMPL}; \
+                   ${FILE_IMPL} ${DIR_OUT}; \
                    source ${FILE_CMD}; \
                    rm -f ${FILE_CMD}"
 
