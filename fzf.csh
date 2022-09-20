@@ -2,7 +2,11 @@
 # [dmn]: csh support for textproc/fzf - fbsd 13 - 2022
 #
 
-set DIR_OUT = $HOME
+if ( $?TMPDIR ) then
+    set DIR_OUT = $TMPDIR
+else
+    set DIR_OUT = "/tmp"
+endif
 
 set FILE_HIS = "${DIR_OUT}/fzf_history.tmp"
 set FILE_CMD = "${DIR_OUT}/fzf_cmd.tmp"
@@ -19,6 +23,7 @@ bindkey -c $KEY_1 "history -h >! ${FILE_HIS}; \
 
 bindkey -s $KEY_RUN "${KEY_1}${KEY_2}"
 
+unset DIR_OUT
 unset FILE_HIS
 unset FILE_CMD
 unset FILE_IMPL

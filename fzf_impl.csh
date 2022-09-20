@@ -44,6 +44,7 @@ endif
 
 rm -f $FILE_HIS
 
+unset DIR_OUT
 unset FILE_HIS
 unset FILE_CMD
 unset KEY_2
