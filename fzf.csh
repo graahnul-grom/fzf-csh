@@ -2,10 +2,9 @@
 # [dmn]: csh support for textproc/fzf - fbsd 13 - 2022
 #
 
+set DIR_OUT = "/tmp"
 if ( $?TMPDIR ) then
     set DIR_OUT = $TMPDIR
-else
-    set DIR_OUT = "/tmp"
 endif
 
 set FILE_HIS = "${DIR_OUT}/fzf_history.tmp"
