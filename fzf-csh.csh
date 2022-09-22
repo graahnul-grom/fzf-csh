@@ -2,7 +2,8 @@
 # [dmn]: csh support for textproc/fzf - fbsd 13 - 2022
 #
 
-set DIR_OUT = "/tmp"
+set DIR_OUT = $HOME
+
 if ( $?FZF_CSH_TMP_DIR ) then
     set DIR_OUT = $FZF_CSH_TMP_DIR
 endif
