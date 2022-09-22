@@ -6,8 +6,8 @@
 
 set DIR_OUT = $1
 
-set FILE_HIS = "${DIR_OUT}/fzf_history.tmp"
-set FILE_CMD = "${DIR_OUT}/fzf_cmd.tmp"
+set FILE_HIS = "${DIR_OUT}/fzf-csh-his.tmp"
+set FILE_CMD = "${DIR_OUT}/fzf-csh-cmd.tmp"
 
 set KEY_2 = "^X^F^G^H^I^J"
 
