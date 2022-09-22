@@ -5,7 +5,6 @@
 #
 
 FILE_CMD=$1
-FILE_HIS=$2
 
 KEY_2="^X^F^G^H^I^J"
 
@@ -14,7 +13,8 @@ echo -n " " >> $FILE_CMD
 
 set -o pipefail
 
-fzf --tac --no-sort < $FILE_HIS | \
+while read line; do echo $line; done | \
+fzf --tac --no-sort | \
     sed -e 's,\\,\\\\\\\\,g' | \
     sed -e 's, ,\\ ,g'  | \
     sed -e "s,',\\',g"  | \
@@ -42,9 +42,6 @@ if [ $? -ne 0 ]; then
     echo bindkey \"${KEY_2}\" backward-char > $FILE_CMD
 fi
 
-rm -f $FILE_HIS
-
 unset FILE_CMD
-unset FILE_HIS
 unset KEY_2
 
