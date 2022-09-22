@@ -11,7 +11,7 @@ endif
 if ( -w $DIR_OUT ) then
     set FILE_HIS  = "${DIR_OUT}/fzf-csh-his.tmp"
     set FILE_CMD  = "${DIR_OUT}/fzf-csh-cmd.tmp"
-    set FILE_IMPL = "/home/fzf-csh.git/fzf-csh-impl.csh"
+    set FILE_IMPL = "/home/fzf-csh.git/fzf-csh-impl.sh"
 else
     echo "fzf-csh.csh: DIR_OUT ($DIR_OUT): not writable, exiting."
     unset DIR_OUT
