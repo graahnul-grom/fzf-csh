@@ -3,8 +3,8 @@
 #
 
 set DIR_OUT = "/tmp"
-if ( $?TMPDIR ) then
-    set DIR_OUT = $TMPDIR
+if ( $?FZF_CSH_TMP_DIR ) then
+    set DIR_OUT = $FZF_CSH_TMP_DIR
 endif
 
 if ( -w $DIR_OUT ) then
