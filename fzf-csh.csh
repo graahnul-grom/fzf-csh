@@ -9,7 +9,6 @@ if ( $?FZF_CSH_TMP_DIR ) then
 endif
 
 if ( -w $DIR_OUT ) then
-    set FILE_HIS  = "${DIR_OUT}/fzf-csh-his.tmp"
     set FILE_CMD  = "${DIR_OUT}/fzf-csh-cmd.tmp"
     set FILE_IMPL = "/home/fzf-csh.git/fzf-csh-impl.sh"
 else
@@ -29,7 +28,6 @@ bindkey -c $KEY_1 "history -h | ${FILE_IMPL} ${FILE_CMD}; \
 bindkey -s $KEY_RUN "${KEY_1}${KEY_2}"
 
 unset DIR_OUT
-unset FILE_HIS
 unset FILE_CMD
 unset FILE_IMPL
 unset KEY_RUN
