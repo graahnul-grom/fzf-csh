@@ -8,11 +8,11 @@ if ( $?FZF_CSH_TMP_DIR ) then
     set DIR_OUT = $FZF_CSH_TMP_DIR
 endif
 
-if ( -w $DIR_OUT ) then
+if ( -dw $DIR_OUT ) then
     set FILE_CMD  = "${DIR_OUT}/fzf-csh-cmd.tmp"
     set FILE_IMPL = "/home/fzf-csh.git/fzf-csh-impl.sh"
 else
-    echo "fzf-csh.csh: DIR_OUT ($DIR_OUT): not writable, exiting."
+    echo "fzf-csh: unable to write to DIR_OUT=${DIR_OUT}, exiting."
     unset DIR_OUT
     exit 1
 endif
