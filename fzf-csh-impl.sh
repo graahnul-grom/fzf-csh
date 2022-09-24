@@ -17,7 +17,6 @@ echo -n " " >> $FILE_CMD
 
 set -o pipefail
 
-# SED="sed"
 SED="sed -E"
 # SED="gsed -E"
 
@@ -32,7 +31,7 @@ fzf --tac --no-sort | \
     $SED -e 's,`,\\`,g'  | \
     $SED -e 's,&,\\&,g'  | \
     $SED -e 's,\(,\\(,g' | \
-    $SED -e 's,),\\),g'  | \
+    $SED -e 's,\),\\),g' | \
     $SED -e 's,~,\\~,g'  | \
     $SED -e 's,\[,\\[,g' | \
     $SED -e 's,],\\],g'  | \
