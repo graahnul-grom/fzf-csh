@@ -3,30 +3,30 @@
 SED="sed -E" # NB: gsed complains on un-escaped (
 # echo 1\"2\'3 | \
 # cat LINE | \
-cat LINE | \
-csh -c "fzf --tac --no-sort | \
-         $SED -e 's,\\\,\\\\\\\,g' | \
-         $SED -e 's, ,\\\ ,g'       | \
-         $SED -e \"s,',\\\\\',g\" | \
-         $SED -e 's,\",\\\\\",g' | \
-         $SED -e 's,\\\$,\\\\\$,g' | \
-         $SED -e 's,#,\\\#,g'  | \
-         $SED -e 's,\`,\\\\\`,g'  | \
-         $SED -e 's,&,\\\&,g'  | \
-         $SED -e 's,\(,\\\(,g' | \
-         $SED -e 's,\),\\\),g' | \
-         $SED -e 's,~,\\\~,g'  | \
-         $SED -e 's,\[,\\\[,g' | \
-         $SED -e 's,],\\\],g'  | \
-         $SED -e 's,\{,\\\{,g' | \
-         $SED -e 's,},\\\},g' | \
-         $SED -e 's,<,\\\<,g'  | \
-         $SED -e 's,>,\\\>,g'  | \
-         $SED -e 's,;,\\\;,g' | \
-         $SED -e 's,\|,\\\|,g' | \
-         $SED -e 's,\?,\\\?,g' | \
-         $SED -e 's,\^,\\\^,g' | \
-         $SED -e 's,X,Y,g'"
+cat LINES | \
+csh -c "fzf --tac --no-sort   | \
+    $SED -e 's,\\\,\\\\\\\,g' | \
+    $SED -e 's, ,\\\ ,g'      | \
+    $SED -e \"s,',\\\\\',g\"  | \
+    $SED -e 's,\",\\\\\",g'   | \
+    $SED -e 's,\\\$,\\\\\$,g' | \
+    $SED -e 's,#,\\\#,g'      | \
+    $SED -e 's,\`,\\\\\`,g'   | \
+    $SED -e 's,&,\\\&,g'      | \
+    $SED -e 's,\(,\\\(,g'     | \
+    $SED -e 's,\),\\\),g'     | \
+    $SED -e 's,~,\\\~,g'      | \
+    $SED -e 's,\[,\\\[,g'     | \
+    $SED -e 's,],\\\],g'      | \
+    $SED -e 's,\{,\\\{,g'     | \
+    $SED -e 's,},\\\},g'      | \
+    $SED -e 's,<,\\\<,g'      | \
+    $SED -e 's,>,\\\>,g'      | \
+    $SED -e 's,;,\\\;,g'      | \
+    $SED -e 's,\|,\\\|,g'     | \
+    $SED -e 's,\?,\\\?,g'     | \
+    $SED -e 's,\^,\\\^,g'     | \
+    $SED -e 's,EKLMN,oprst,g'"  # placeholder
 echo $?
 
 
