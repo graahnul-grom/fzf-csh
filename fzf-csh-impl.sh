@@ -31,14 +31,14 @@ fzf --tac --no-sort | \
     $SED -e 's,#,\\#,g'  | \
     $SED -e 's,`,\\`,g'  | \
     $SED -e 's,&,\\&,g'  | \
-    $SED -e 's,(,\\(,g'  | \
+    $SED -e 's,\(,\\(,g' | \
     $SED -e 's,),\\),g'  | \
     $SED -e 's,~,\\~,g'  | \
     $SED -e 's,\[,\\[,g' | \
     $SED -e 's,],\\],g'  | \
-    $SED -e 's,{,\\{,g'  | \
+    $SED -e 's,\{,\\{,g' | \
     $SED -e 's,\},\\},g' | \
-    $SED -e 's,<,\\>,g'  | \
+    $SED -e 's,<,\\<,g'  | \
     $SED -e 's,>,\\>,g'  | \
     $SED -e 's,\;,\\;,g' | \
     $SED -e 's,\|,\\|,g' | \
