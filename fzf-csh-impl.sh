@@ -17,29 +17,33 @@ echo -n " " >> $FILE_CMD
 
 set -o pipefail
 
+# SED="sed"
+SED="sed -E"
+# SED="gsed -E"
+
 while read line; do echo $line; done | \
 fzf --tac --no-sort | \
-    sed -e 's,\\,\\\\\\\\,g' | \
-    sed -e 's, ,\\ ,g'  | \
-    sed -e "s,',\\',g"  | \
-    sed -e 's,",\\",g'  | \
-    sed -e 's,\$,\\$,g' | \
-    sed -e 's,#,\\#,g'  | \
-    sed -e 's,`,\\`,g'  | \
-    sed -e 's,&,\\&,g'  | \
-    sed -e 's,(,\\(,g'  | \
-    sed -e 's,),\\),g'  | \
-    sed -e 's,~,\\~,g'  | \
-    sed -e 's,\[,\\[,g' | \
-    sed -e 's,],\\],g'  | \
-    sed -e 's,{,\\{,g'  | \
-    sed -e 's,\},\\},g' | \
-    sed -e 's,<,\\>,g'  | \
-    sed -e 's,>,\\>,g'  | \
-    sed -e 's,\;,\\;,g' | \
-    sed -e 's,\|,\\|,g' | \
-    sed -e 's,\?,\\?,g' | \
-    sed -e 's,\^,\\\\^,g' \
+    $SED -e 's,\\,\\\\\\\\,g' | \
+    $SED -e 's, ,\\ ,g'  | \
+    $SED -e "s,',\\',g"  | \
+    $SED -e 's,",\\",g'  | \
+    $SED -e 's,\$,\\$,g' | \
+    $SED -e 's,#,\\#,g'  | \
+    $SED -e 's,`,\\`,g'  | \
+    $SED -e 's,&,\\&,g'  | \
+    $SED -e 's,(,\\(,g'  | \
+    $SED -e 's,),\\),g'  | \
+    $SED -e 's,~,\\~,g'  | \
+    $SED -e 's,\[,\\[,g' | \
+    $SED -e 's,],\\],g'  | \
+    $SED -e 's,{,\\{,g'  | \
+    $SED -e 's,\},\\},g' | \
+    $SED -e 's,<,\\>,g'  | \
+    $SED -e 's,>,\\>,g'  | \
+    $SED -e 's,\;,\\;,g' | \
+    $SED -e 's,\|,\\|,g' | \
+    $SED -e 's,\?,\\?,g' | \
+    $SED -e 's,\^,\\\\^,g' \
     >> $FILE_CMD
 
 if [ $? -ne 0 ]; then
