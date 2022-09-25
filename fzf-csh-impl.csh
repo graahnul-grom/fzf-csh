@@ -15,28 +15,30 @@ set KEY_2 = "^X^F^G^H^I^J"
 echo -n bindkey -s \"${KEY_2}\" >! $FILE_CMD
 echo -n " " >> $FILE_CMD
 
+set SED = "sed -E"
+
 fzf --tac --no-sort | \
-    sed -e 's,\\,\\\\\\\\,g' | \
-    sed -e 's, ,\\ ,g'  | \
-    sed -e "s,',\\',g"  | \
-    sed -e 's,",\\",g'  | \
-    sed -e 's,\$,\\$,g' | \
-    sed -e 's,#,\\#,g'  | \
-    sed -e 's,`,\\`,g'  | \
-    sed -e 's,&,\\&,g'  | \
-    sed -e 's,\(,\\(,g' | \
-    sed -e 's,\),\\),g' | \
-    sed -e 's,~,\\~,g'  | \
-    sed -e 's,\[,\\[,g' | \
-    sed -e 's,],\\],g'  | \
-    sed -e 's,\{,\\{,g' | \
-    sed -e 's,\},\\},g' | \
-    sed -e 's,<,\\<,g'  | \
-    sed -e 's,>,\\>,g'  | \
-    sed -e 's,\;,\\;,g' | \
-    sed -e 's,\|,\\|,g' | \
-    sed -e 's,\?,\\?,g' | \
-    sed -e 's,\^,\\^,g'   \
+    $SED -e 's,\\,\\\\\\\\,g' | \
+    $SED -e 's, ,\\ ,g'  | \
+    $SED -e "s,',\\',g"  | \
+    $SED -e 's,",\\",g'  | \
+    $SED -e 's,\$,\\$,g' | \
+    $SED -e 's,#,\\#,g'  | \
+    $SED -e 's,`,\\`,g'  | \
+    $SED -e 's,&,\\&,g'  | \
+    $SED -e 's,\(,\\(,g' | \
+    $SED -e 's,\),\\),g' | \
+    $SED -e 's,~,\\~,g'  | \
+    $SED -e 's,\[,\\[,g' | \
+    $SED -e 's,],\\],g'  | \
+    $SED -e 's,\{,\\{,g' | \
+    $SED -e 's,\},\\},g' | \
+    $SED -e 's,<,\\<,g'  | \
+    $SED -e 's,>,\\>,g'  | \
+    $SED -e 's,\;,\\;,g' | \
+    $SED -e 's,\|,\\|,g' | \
+    $SED -e 's,\?,\\?,g' | \
+    $SED -e 's,\^,\\^,g'   \
     >> $FILE_CMD
 
 if ( $? != 0 ) then
@@ -45,4 +47,5 @@ endif
 
 unset FILE_CMD
 unset KEY_2
+unset SED
 
