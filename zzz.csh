@@ -1,5 +1,9 @@
 #!/bin/csh
 
+
+
+
+
 set FILE_CMD = $1
 
 set KEY_2 = "^X^F^G^H^I^J"
