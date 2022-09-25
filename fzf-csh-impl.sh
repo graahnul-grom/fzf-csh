@@ -19,7 +19,7 @@ set -o pipefail
 
 SED="sed -E"
 
-while read line; do echo $line; done | \
+while read line; do echo "${line}"; done | \
 fzf --tac --no-sort | \
     $SED -e 's,\\,\\\\\\\\,g' | \
     $SED -e 's, ,\\ ,g'       | \
