@@ -20,19 +20,19 @@ fzf --tac --no-sort | \
     sed -e 's,#,\\#,g'  | \
     sed -e 's,`,\\`,g'  | \
     sed -e 's,&,\\&,g'  | \
-    sed -e 's,(,\\(,g'  | \
-    sed -e 's,),\\),g'  | \
+    sed -e 's,\(,\\(,g' | \
+    sed -e 's,\),\\),g' | \
     sed -e 's,~,\\~,g'  | \
     sed -e 's,\[,\\[,g' | \
     sed -e 's,],\\],g'  | \
-    sed -e 's,{,\\{,g'  | \
+    sed -e 's,\{,\\{,g' | \
     sed -e 's,\},\\},g' | \
-    sed -e 's,<,\\>,g'  | \
+    sed -e 's,<,\\<,g'  | \
     sed -e 's,>,\\>,g'  | \
     sed -e 's,\;,\\;,g' | \
     sed -e 's,\|,\\|,g' | \
     sed -e 's,\?,\\?,g' | \
-    sed -e 's,\^,\\\\^,g' \
+    sed -e 's,\^,\\^,g'   \
     >> $FILE_CMD
 
 if ( $? != 0 ) then
