@@ -14,7 +14,7 @@ endif
 
 if ( -dw $DIR_OUT ) then
     set FILE_CMD  = "${DIR_OUT}/fzf-csh-cmd.tmp"
-    set FILE_IMPL = "fzf-csh-impl.sh"
+    set FILE_IMPL = "fzf-csh-impl.csh"
 else
     echo "fzf-csh: unable to write to ${DIR_OUT}."
     echo "         make sure the directory is writable, or set the"
