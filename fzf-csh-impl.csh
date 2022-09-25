@@ -1,7 +1,11 @@
 #!/usr/bin/env csh
 
+# fzf-csh: C shell (csh) history support for fzf
 #
-# [dmn]: csh support for textproc/fzf - fbsd 13 - 2022
+# home page: https://github.com/graahnul-grom/fzf-csh
+# copyright (c) 2022 dmn <graahnul.grom@ya.ru>
+# license: BSD
+# fzf home page: https://github.com/junegunn/fzf
 #
 
 set FILE_CMD = $1
