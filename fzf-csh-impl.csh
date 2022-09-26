@@ -8,6 +8,10 @@
 # fzf home page: https://github.com/junegunn/fzf
 #
 
+if ( $#argv != 1 ) then
+    exit 1
+endif
+
 set FILE_CMD = $1
 
 set KEY_2 = "^X^F^G^H^I^J"
