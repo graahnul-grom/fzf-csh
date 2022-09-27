@@ -28,8 +28,7 @@ Press `Enter` to put the selected history item on the command line.
 compatibility
 =============
 tested with `fzf` 0.33.0 on FreeBSD 13.1, so at the moment
-`fzf-csh` should work with `tcsh` shell and `sed`,
-both from the FreeBSD base system.
+`fzf-csh` should work with `tcsh` shell from the FreeBSD base system.
 
 
 license

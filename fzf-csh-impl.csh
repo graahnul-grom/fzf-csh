@@ -19,10 +19,8 @@ set KEY_2 = "^X^F^G^H^I^J"
 echo -n bindkey -s \"${KEY_2}\" >! $FILE_CMD
 echo -n " " >> $FILE_CMD
 
-set SED = "sed -E"
-
 fzf --tac --no-sort | \
-    $SED -e 's,\\,\\\\\\\\,g' \
+    sed -E -e 's,\\,\\\\\\\\,g' \
          -e 's, ,\\ ,g'       \
          -e "s,',\\',g"       \
          -e 's,",\\",g'       \
@@ -51,5 +49,4 @@ endif
 
 unset FILE_CMD
 unset KEY_2
-unset SED
 
