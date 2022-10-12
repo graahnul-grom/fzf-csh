@@ -23,7 +23,12 @@ echo -n " " >> $FILE_CMD
 set echo_style = $ES_OLD
 unset ES_OLD
 
-fzf --tac --no-sort | \
+set HEIGHT = ""
+if ( $?DISPLAY ) then
+    set HEIGHT = "--height=50%"
+endif
+
+fzf --tac --no-sort $HEIGHT | \
     sed -E -e 's,\\,\\\\\\\\,g' \
          -e 's, ,\\ ,g'       \
          -e "s,',\\',g"       \
@@ -53,4 +58,5 @@ endif
 
 unset FILE_CMD
 unset KEY_2
+unset HEIGHT
 
