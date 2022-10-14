@@ -6,13 +6,13 @@ C shell
 history support for
 [fzf](https://github.com/junegunn/fzf)
 command line fuzzy finder.
-Works with tcsh.
+Works with [tcsh](https://www.tcsh.org).
 
 
 how to use
 ==========
 
-- clone the repository or download two files:
+- clone the repository or download these two files:
 [fzf-csh.csh](https://raw.githubusercontent.com/graahnul-grom/fzf-csh/master/fzf-csh.csh)
 and [fzf-csh-impl.csh](https://raw.githubusercontent.com/graahnul-grom/fzf-csh/master/fzf-csh-impl.csh)
 - source `fzf-csh.csh` in your `.cshrc` configuration file:
@@ -30,7 +30,7 @@ pressing `Ctrl + R` will open the `fzf` list with command history.
 Press `Enter` to put the selected history item on the command line.
 
 `fzf-csh` requires some temporary writable directory to work,
-and by default it uses `$HOME` (user's home directory).
+and by default it uses `$HOME`.
 If `$HOME` is not writable or you want to use another directory,
 set its path in the `$FZF_CSH_TMP_DIR` environment variable
 before including `fzf-csh.csh`, e.g.:
@@ -45,9 +45,15 @@ endif
 
 compatibility
 =============
-Tested with `fzf` 0.33.0 on FreeBSD 13.1, so at the moment
-`fzf-csh` should work with `tcsh` shell (6.22.04)
+
+Tested with `fzf` 0.33 and 0.34 on FreeBSD 13.1, so at the
+moment `fzf-csh` should work with `tcsh` shell (6.22.04)
 from the FreeBSD base system.
+
+<!--
+    TODO: add info on ubuntu, see:
+    .wip/fzf-csh_on_ubuntu_linux.info
+-->
 
 
 license
