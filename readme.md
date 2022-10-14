@@ -1,9 +1,12 @@
 fzf-csh
 =======
 
-C shell (csh) history support for
+C shell
+([csh](https://en.wikipedia.org/wiki/C_shell))
+history support for
 [fzf](https://github.com/junegunn/fzf)
 command line fuzzy finder.
+Works with tcsh.
 
 
 how to use
