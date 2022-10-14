@@ -4,7 +4,7 @@
 #
 # home page: https://github.com/graahnul-grom/fzf-csh
 # copyright (c) 2022 dmn <graahnul.grom@ya.ru>
-# license: BSD
+# license: BSD2CLAUSE
 # fzf home page: https://github.com/junegunn/fzf
 #
 

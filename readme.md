@@ -50,7 +50,7 @@ from the FreeBSD base system.
 license
 =======
 
-BSD
+BSD2CLAUSE
 <br />
 copyright (c) 2022 dmn
 
