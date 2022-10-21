@@ -33,7 +33,7 @@ setenv  t       $HOME/tmp
 setenv  lepton  $HOME/lepton
 setenv  dt      ~dmn/tmp
 setenv  dcfg    ~dmn/dcfg
-setenv  prj     ~dmn/prj
+setenv  dprj    ~dmn/dprj
 setenv  ee      ~dmn/ee
 setenv  EDITOR  vim
 setenv  PAGER   'less -i'
