@@ -6,6 +6,12 @@
 # fzf home page: https://github.com/junegunn/fzf
 #
 
+if ( ! -X "fzf" ) then
+    echo "fzf-csh: could not find fzf executable."
+    echo "         make sure fzf is installed."
+    exit 1
+endif
+
 set DIR_OUT = $HOME
 
 if ( $?FZF_CSH_TMP_DIR ) then
