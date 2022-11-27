@@ -13,16 +13,22 @@ if ( $#argv != 1 ) then
 endif
 
 set FILE_CMD = $1
-
 set KEY_2 = "^X^F^G^H^I^J"
+
+touch $FILE_CMD >& /dev/null
+if ( $? != 0 ) then
+    echo "fzf-csh: unable to write to ${FILE_CMD}."
+    unset FILE_CMD
+    unset KEY_2
+    exit 1
+endif
 
 set ES_OLD = $echo_style
 set echo_style = both
 
-# TODO: handle r/o file system:
-#
 echo -n bindkey -s \"${KEY_2}\" >! $FILE_CMD
 echo -n " " >> $FILE_CMD
+
 set echo_style = $ES_OLD
 unset ES_OLD
 

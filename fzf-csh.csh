@@ -48,8 +48,7 @@ set KEY_RUN = "^R"
 set KEY_1   = "^X^A^B^C^D^E"
 set KEY_2   = "^X^F^G^H^I^J"
 
-bindkey -c $KEY_1 "history -h | ${FILE_IMPL} ${FILE_CMD}; \
-                   source ${FILE_CMD}; \
+bindkey -c $KEY_1 "history -h | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
                    rm -f ${FILE_CMD}"
 
 bindkey -s $KEY_RUN "${KEY_1}${KEY_2}"
