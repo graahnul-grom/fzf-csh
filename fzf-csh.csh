@@ -33,8 +33,16 @@ endif
 
 set FILE_CMD  = "${DIR_OUT}/fzf-csh-cmd.tmp"
 set FILE_IMPL = "fzf-csh-impl.csh"
-#
-# TODO: check -X $FILE_IMPL # csh(1): "File inquiry operators"
+
+if ( ! -X $FILE_IMPL ) then
+    echo "fzf-csh: could not find ${FILE_IMPL}."
+    echo "         make sure it's in the PATH and is executable."
+    unset DIR_OUT
+    unset FILE_CMD
+    unset FILE_IMPL
+    exit 1
+endif
+
 
 set KEY_RUN = "^R"
 set KEY_1   = "^X^A^B^C^D^E"
@@ -50,6 +58,6 @@ unset DIR_OUT
 unset FILE_CMD
 unset FILE_IMPL
 unset KEY_RUN
-unset KEY_1  
-unset KEY_2  
+unset KEY_1
+unset KEY_2
 
