@@ -1,13 +1,13 @@
 #!/usr/bin/env csh
 
-# NOTE: "File inquiry operators" -d, -w, etc.,
-#       see man csh(1) tests file permissions ONLY
+# NOTE: "File inquiry operators" -d, -w, etc., -
+#       see man csh(1) - tests file permissions ONLY
 #       (no test for e.g. if file is ACTUALLY writable)
 
 set DDD = $1
 echo ".. DDD: [$DDD]"
 
-# NOTE:  -d <=> `filetest -d`:
+# NOTE:  -d <=> `filetest -d` // builtin
 #
 test -d $DDD
 if ( $? == 0 ) then
@@ -16,7 +16,7 @@ if ( $? == 0 ) then
 # if ( -d $DDD ) then            # OK
     echo ".. d"
 else
-    echo ".. \!d" # WARNING: '!' expands to smth. in history
+    echo ".. \!d" # WARNING: '!' => "History substitution": cmd starting with 'd'
 endif
 
 if ( -w "$DDD" ) then

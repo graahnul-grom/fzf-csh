@@ -24,11 +24,17 @@ if ( -r "/path/to/fzf-csh.csh" ) then
 endif
 ```
 
-- copy `fzf-csh-impl.sh` somewhere in the `$PATH`
+- copy `fzf-csh-impl.sh` somewhere in the `$PATH` and
+make sure it is executable (`chmod +x`).
 
 If you're lucky, after logging out and then in,
 pressing `Ctrl + R` will open the `fzf` list with command history.
 Press `Enter` to put the selected history item on the command line.
+
+Note that you have to press `Ctrl + R` first and then start
+typing something to filter the history. Doing the other way
+around - typing and then pressing `Ctrl + R` - will not take
+into account what have already been typed.
 
 `fzf-csh` requires some temporary writable directory to work,
 and by default it uses `$HOME`.
@@ -51,10 +57,12 @@ Tested with `fzf` 0.33 and 0.34 on FreeBSD 13.1, so at the
 moment `fzf-csh` should work with `tcsh` shell (6.22.04)
 from the FreeBSD base system.
 
-<!--
-    TODO: add info on ubuntu, see:
-    .wip/fzf-csh_on_ubuntu_linux.info
--->
+Also tested on Ununtu Linux 20.04 LTS ("Focal Fossa").
+Note that there are two csh packages:
+`csh` (installs `/bin/bsd-csh`) and `tcsh` (installs `/bin/tcsh`).
+The former will not work, make sure to install `tcsh` or,
+if both are installed, run `update-alternatives --config csh`
+command and select `tcsh` when prompted.
 
 
 license
