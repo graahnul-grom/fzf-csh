@@ -18,6 +18,9 @@ set KEY_2 = "^X^F^G^H^I^J"
 
 set ES_OLD = $echo_style
 set echo_style = both
+
+# TODO: handle r/o file system:
+#
 echo -n bindkey -s \"${KEY_2}\" >! $FILE_CMD
 echo -n " " >> $FILE_CMD
 set echo_style = $ES_OLD

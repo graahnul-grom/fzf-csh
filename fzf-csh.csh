@@ -12,17 +12,29 @@ if ( $?FZF_CSH_TMP_DIR ) then
     set DIR_OUT = $FZF_CSH_TMP_DIR
 endif
 
-if ( -dw $DIR_OUT ) then
-    set FILE_CMD  = "${DIR_OUT}/fzf-csh-cmd.tmp"
-    set FILE_IMPL = "fzf-csh-impl.csh"
-else
-    echo "fzf-csh: unable to write to ${DIR_OUT}."
-    echo "         make sure the directory is writable, or set the"
-    echo '         $FZF_CSH_TMP_DIR env var to point to it before'
-    echo "         sourcing the fzf-csh.csh file."
+test -e $DIR_OUT -a -d $DIR_OUT
+if ( $? != 0 ) then
+    echo "fzf-csh: ${DIR_OUT} does not exist or not a directory."
     unset DIR_OUT
     exit 1
 endif
+
+test -w $DIR_OUT
+if ( $? != 0 ) then
+    echo "fzf-csh: unable to write to ${DIR_OUT}."
+    echo "         make sure the directory is writable, or set the"
+    echo '         $FZF_CSH_TMP_DIR environment variable to point'
+    echo "         to some writable directory before sourcing the"
+    echo "         fzf-csh.csh file."
+    unset DIR_OUT
+    exit 1
+endif
+
+
+set FILE_CMD  = "${DIR_OUT}/fzf-csh-cmd.tmp"
+set FILE_IMPL = "fzf-csh-impl.csh"
+#
+# TODO: check -X $FILE_IMPL # csh(1): "File inquiry operators"
 
 set KEY_RUN = "^R"
 set KEY_1   = "^X^A^B^C^D^E"
