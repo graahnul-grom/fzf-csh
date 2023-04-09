@@ -1,7 +1,7 @@
 # fzf-csh: C shell (csh) history support for fzf
 #
 # home page: https://github.com/graahnul-grom/fzf-csh
-# copyright (c) 2022 dmn <graahnul.grom@ya.ru>
+# copyright (c) 2022-2023 dmn <graahnul.grom@ya.ru>
 # license: BSD2CLAUSE
 # fzf home page: https://github.com/junegunn/fzf
 #
@@ -58,10 +58,21 @@ bindkey -c $KEY_1_HISTORY "history -h | ${FILE_IMPL} ${FILE_CMD} && source ${FIL
                            rm -f ${FILE_CMD}"
 bindkey -s $KEY_HISTORY "${KEY_1_HISTORY}${KEY_2}"
 
+
+set KEY_FILES = "^T"
+set KEY_1_FILES = "^X^K^L^M^N^O"
+
+bindkey -c $KEY_1_FILES "find . -type f -o -type d | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
+                         rm -f ${FILE_CMD}"
+bindkey -s $KEY_FILES "${KEY_1_FILES}${KEY_2}"
+
+
 unset DIR_OUT
 unset FILE_CMD
 unset FILE_IMPL
 unset KEY_HISTORY
 unset KEY_1_HISTORY
+unset KEY_FILES
+unset KEY_1_FILES
 unset KEY_2
 
