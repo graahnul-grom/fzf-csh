@@ -50,19 +50,18 @@ if ( ! -X $FILE_IMPL ) then
 endif
 
 
-set KEY_RUN = "^R"
-set KEY_1   = "^X^A^B^C^D^E"
-set KEY_2   = "^X^F^G^H^I^J"
+set KEY_HISTORY = "^R"
+set KEY_1_HISTORY = "^X^A^B^C^D^E"
+set KEY_2 = "^X^F^G^H^I^J"
 
-bindkey -c $KEY_1 "history -h | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
-                   rm -f ${FILE_CMD}"
-
-bindkey -s $KEY_RUN "${KEY_1}${KEY_2}"
+bindkey -c $KEY_1_HISTORY "history -h | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
+                           rm -f ${FILE_CMD}"
+bindkey -s $KEY_HISTORY "${KEY_1_HISTORY}${KEY_2}"
 
 unset DIR_OUT
 unset FILE_CMD
 unset FILE_IMPL
-unset KEY_RUN
-unset KEY_1
+unset KEY_HISTORY
+unset KEY_1_HISTORY
 unset KEY_2
 
