@@ -62,7 +62,7 @@ bindkey -s $KEY_HISTORY "${KEY_1_HISTORY}${KEY_2}"
 set KEY_FILES = "^T"
 set KEY_1_FILES = "^X^K^L^M^N^O"
 
-bindkey -c $KEY_1_FILES "find . -type f -o -type d | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
+bindkey -c $KEY_1_FILES "fzf-csh-find.sh | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
                          rm -f ${FILE_CMD}"
 bindkey -s $KEY_FILES "${KEY_1_FILES}${KEY_2}"
 
