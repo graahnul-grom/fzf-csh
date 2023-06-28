@@ -13,20 +13,20 @@ if ( $#argv != 1 ) then
 endif
 
 set FILE_CMD = $1
-set KEY_2 = "^X^F^G^H^I^J"
+set KEY_AUX = "^X^F^G^H^I^J"
 
 touch $FILE_CMD >& /dev/null
 if ( $? != 0 ) then
     echo "fzf-csh: unable to write to ${FILE_CMD}."
     unset FILE_CMD
-    unset KEY_2
+    unset KEY_AUX
     exit 1
 endif
 
 set ES_OLD = $echo_style
 set echo_style = both
 
-echo -n bindkey -s \"${KEY_2}\" >! $FILE_CMD
+echo -n bindkey -s \"${KEY_AUX}\" >! $FILE_CMD
 echo -n " " >> $FILE_CMD
 
 set echo_style = $ES_OLD
@@ -62,10 +62,10 @@ fzf --tac --no-sort $HEIGHT | \
     >> $FILE_CMD
 
 if ( $? != 0 ) then
-    echo bindkey \"${KEY_2}\" backward-char >! $FILE_CMD
+    echo bindkey \"${KEY_AUX}\" backward-char >! $FILE_CMD
 endif
 
 unset FILE_CMD
-unset KEY_2
+unset KEY_AUX
 unset HEIGHT
 
