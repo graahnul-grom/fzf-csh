@@ -51,12 +51,12 @@ endif
 
 
 set KEY_HISTORY = "^R"
-set KEY_1_HISTORY = "^X^A^B^C^D^E"
+set KEY_HISTORY_AUX = "^X^A^B^C^D^E"
 set KEY_AUX = "^X^F^G^H^I^J"
 
-bindkey -c $KEY_1_HISTORY "history -h | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
+bindkey -c $KEY_HISTORY_AUX "history -h | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
                            rm -f ${FILE_CMD}"
-bindkey -s $KEY_HISTORY "${KEY_1_HISTORY}${KEY_AUX}"
+bindkey -s $KEY_HISTORY "${KEY_HISTORY_AUX}${KEY_AUX}"
 
 
 set KEY_FILES = "^T"
@@ -71,7 +71,7 @@ unset DIR_OUT
 unset FILE_CMD
 unset FILE_IMPL
 unset KEY_HISTORY
-unset KEY_1_HISTORY
+unset KEY_HISTORY_AUX
 unset KEY_FILES
 unset KEY_1_FILES
 unset KEY_AUX
