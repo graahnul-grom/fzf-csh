@@ -52,11 +52,11 @@ endif
 
 set KEY_HISTORY = "^R"
 set KEY_1_HISTORY = "^X^A^B^C^D^E"
-set KEY_2 = "^X^F^G^H^I^J"
+set KEY_AUX = "^X^F^G^H^I^J"
 
 bindkey -c $KEY_1_HISTORY "history -h | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
                            rm -f ${FILE_CMD}"
-bindkey -s $KEY_HISTORY "${KEY_1_HISTORY}${KEY_2}"
+bindkey -s $KEY_HISTORY "${KEY_1_HISTORY}${KEY_AUX}"
 
 
 set KEY_FILES = "^T"
@@ -64,7 +64,7 @@ set KEY_1_FILES = "^X^K^L^M^N^O"
 
 bindkey -c $KEY_1_FILES "fzf-csh-find.sh | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
                          rm -f ${FILE_CMD}"
-bindkey -s $KEY_FILES "${KEY_1_FILES}${KEY_2}"
+bindkey -s $KEY_FILES "${KEY_1_FILES}${KEY_AUX}"
 
 
 unset DIR_OUT
@@ -74,5 +74,5 @@ unset KEY_HISTORY
 unset KEY_1_HISTORY
 unset KEY_FILES
 unset KEY_1_FILES
-unset KEY_2
+unset KEY_AUX
 
