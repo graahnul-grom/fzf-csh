@@ -13,9 +13,12 @@ Works with [tcsh](https://www.tcsh.org).
 how to use
 ==========
 
-- clone the repository or download these two files:
-[fzf-csh.csh](https://raw.githubusercontent.com/graahnul-grom/fzf-csh/master/fzf-csh.csh)
-and [fzf-csh-impl.csh](https://raw.githubusercontent.com/graahnul-grom/fzf-csh/master/fzf-csh-impl.csh)
+- clone the repository:
+
+```
+git clone https://github.com/graahnul-grom/fzf-csh.git
+```
+
 - source `fzf-csh.csh` in your `.cshrc` configuration file:
 
 ```
@@ -27,9 +30,9 @@ endif
 - copy `fzf-csh-impl.sh` somewhere in the `$PATH` and
 make sure it is executable (`chmod +x`).
 
-If you're lucky, after logging out and then in,
+After logging out and then in,
 pressing `Ctrl + R` will open the `fzf` list with command history.
-Press `Enter` to put the selected history item on the command line.
+Press `Enter` to put selected history item on the command line.
 
 Note that you have to press `Ctrl + R` first and then start
 typing something to filter the history. Doing the other way
@@ -53,14 +56,14 @@ endif
 compatibility
 =============
 
-Tested with `fzf` 0.33 and 0.34 on FreeBSD 13.1, so at the
-moment `fzf-csh` should work with `tcsh` shell (6.22.04)
-from the FreeBSD base system.
+Tested with `fzf` 0.33 - 0.38 on FreeBSD 13, so at the
+moment `fzf-csh` should work with `tcsh` shell
+(6.22.04 - `echo $tcsh`) from the FreeBSD base system.
 
-Also tested on Ununtu Linux 20.04 LTS ("Focal Fossa").
+Also tested on Ubuntu Linux 20.04 LTS ("Focal Fossa").
 Note that there are two csh packages:
 `csh` (installs `/bin/bsd-csh`) and `tcsh` (installs `/bin/tcsh`).
-The former will not work, make sure to install `tcsh` or,
+The former will not work, make sure to install the `tcsh` one or,
 if both are installed, run `update-alternatives --config csh`
 command and select `tcsh` when prompted.
 
@@ -70,5 +73,5 @@ license
 
 BSD2CLAUSE
 <br />
-copyright (c) 2022 dmn
+copyright (c) 2022-2023 dmn
 
