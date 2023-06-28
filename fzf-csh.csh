@@ -60,11 +60,11 @@ bindkey -s $KEY_HISTORY "${KEY_HISTORY_AUX}${KEY_AUX}"
 
 
 set KEY_FILES = "^T"
-set KEY_1_FILES = "^X^K^L^M^N^O"
+set KEY_FILES_AUX = "^X^K^L^M^N^O"
 
-bindkey -c $KEY_1_FILES "fzf-csh-find.sh | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
+bindkey -c $KEY_FILES_AUX "fzf-csh-find.sh | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
                          rm -f ${FILE_CMD}"
-bindkey -s $KEY_FILES "${KEY_1_FILES}${KEY_AUX}"
+bindkey -s $KEY_FILES "${KEY_FILES_AUX}${KEY_AUX}"
 
 
 unset DIR_OUT
@@ -73,6 +73,6 @@ unset FILE_IMPL
 unset KEY_HISTORY
 unset KEY_HISTORY_AUX
 unset KEY_FILES
-unset KEY_1_FILES
+unset KEY_FILES_AUX
 unset KEY_AUX
 
