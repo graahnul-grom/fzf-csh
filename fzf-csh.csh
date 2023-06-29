@@ -37,15 +37,27 @@ if ( $? != 0 ) then
 endif
 
 
-set FILE_CMD  = "${DIR_OUT}/fzf-csh-cmd.tmp"
+set FILE_CMD = "${DIR_OUT}/fzf-csh-cmd.tmp"
 set FILE_IMPL = "fzf-csh-impl.csh"
+set FILE_IMPL_FIND = "fzf-csh-find.sh"
 
 if ( ! -X $FILE_IMPL ) then
     echo "fzf-csh: could not find ${FILE_IMPL}."
-    echo "         make sure it's in the PATH and is executable."
+    echo "         make sure it's in the PATH and has executable bit set (chmod +x)."
     unset DIR_OUT
     unset FILE_CMD
     unset FILE_IMPL
+    unset FILE_IMPL_FIND
+    exit 1
+endif
+
+if ( ! -X $FILE_IMPL_FIND ) then
+    echo "fzf-csh: could not find ${FILE_IMPL_FIND}."
+    echo "         make sure it's in the PATH and has executable bit set (chmod +x)."
+    unset DIR_OUT
+    unset FILE_CMD
+    unset FILE_IMPL
+    unset FILE_IMPL_FIND
     exit 1
 endif
 
@@ -62,7 +74,7 @@ bindkey -s $KEY_HISTORY "${KEY_HISTORY_AUX}${KEY_AUX}"
 set KEY_FILES = "^T"
 set KEY_FILES_AUX = "^X^K^L^M^N^O"
 
-bindkey -c $KEY_FILES_AUX "fzf-csh-find.sh | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
+bindkey -c $KEY_FILES_AUX "${FILE_IMPL_FIND} | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
                            rm -f ${FILE_CMD}"
 bindkey -s $KEY_FILES "${KEY_FILES_AUX}${KEY_AUX}"
 
