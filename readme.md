@@ -53,6 +53,16 @@ endif
 ```
 
 
+file name completion
+====================
+
+In addition to history, file name completion support has been
+added recently. Press `Ctrl + T` to open a list with (regular)
+files/dirs names found under the current directory.
+Paths like `.git/`, `.svn/`, and those located on other
+file systems are excluded by default.
+
+
 compatibility
 =============
 
