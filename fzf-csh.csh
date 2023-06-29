@@ -55,7 +55,7 @@ set KEY_HISTORY_AUX = "^X^A^B^C^D^E"
 set KEY_AUX = "^X^F^G^H^I^J"
 
 bindkey -c $KEY_HISTORY_AUX "history -h | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
-                           rm -f ${FILE_CMD}"
+                             rm -f ${FILE_CMD}"
 bindkey -s $KEY_HISTORY "${KEY_HISTORY_AUX}${KEY_AUX}"
 
 
@@ -63,7 +63,7 @@ set KEY_FILES = "^T"
 set KEY_FILES_AUX = "^X^K^L^M^N^O"
 
 bindkey -c $KEY_FILES_AUX "fzf-csh-find.sh | ${FILE_IMPL} ${FILE_CMD} && source ${FILE_CMD}; \
-                         rm -f ${FILE_CMD}"
+                           rm -f ${FILE_CMD}"
 bindkey -s $KEY_FILES "${KEY_FILES_AUX}${KEY_AUX}"
 
 
