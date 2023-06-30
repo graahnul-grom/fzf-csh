@@ -27,8 +27,8 @@ if ( -r "/path/to/fzf-csh.csh" ) then
 endif
 ```
 
-- copy `fzf-csh-impl.sh` somewhere in the `$PATH` and
-make sure it is executable (`chmod +x`).
+- copy `fzf-csh-impl.csh` and `fzf-csh-find.sh` somewhere in
+the `$PATH` and make them executable (`chmod +x`).
 
 After logging out and then in,
 pressing `Ctrl + R` will open the `fzf` list with command history.
@@ -61,6 +61,9 @@ added recently. Press `Ctrl + T` to open a list with (regular)
 files/dirs names found under the current directory.
 Paths like `.git/`, `.svn/`, and those located on other
 file systems are excluded by default.
+See
+[fzf-csh-find.sh](fzf-csh-find.sh)
+for the `find(1)` command used.
 
 
 compatibility
